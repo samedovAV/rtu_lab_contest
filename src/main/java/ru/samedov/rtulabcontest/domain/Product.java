@@ -10,7 +10,7 @@ public class Product {
 
     @Id
     @Column
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
@@ -18,6 +18,9 @@ public class Product {
 
     @Column
     private String description;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Person person;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Purchase purchase;

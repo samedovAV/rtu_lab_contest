@@ -11,12 +11,12 @@ public class Person {
 
     @Id
     @Column
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column
     private String name;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "person")
     Set<Purchase> purchases;
 }
